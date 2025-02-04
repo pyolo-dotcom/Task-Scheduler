@@ -1,0 +1,45 @@
+# Initialize an empty list to store tasks
+tasks = []
+
+# Function to add a task to the list
+def add_task(task):
+    tasks.append(task)
+    print(f"Task '{task}' added successfully!")
+
+# Function to run the scheduler and execute tasks
+def run_scheduler():
+    if not tasks:
+        print("No tasks to execute!")
+        return
+    
+    print("\nExecuting tasks:")
+    for index, task in enumerate(tasks, 1):
+        print(f"{index}. Running task: {task}")
+    
+    tasks.clear()
+    print("All tasks completed!\n")
+
+# Main function to handle user interaction
+def main():
+    while True:
+        print("\nTask Scheduler Menu:")
+        print("1. Add Task")
+        print("2. Run Scheduler")
+        print("3. Exit")
+        
+        choice = input("Enter your choice (1-3): ")
+        
+        if choice == "1":
+            task = input("Enter task description: ")
+            add_task(task)
+        elif choice == "2":
+            run_scheduler()
+        elif choice == "3":
+            print("Exiting Task Scheduler. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+# Check if the script is being run directly
+if __name__ == "__main__":
+    main()
